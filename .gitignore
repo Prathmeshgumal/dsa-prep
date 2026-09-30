@@ -1,0 +1,7 @@
+# compiled binaries (files without an extension)
+*
+!*/
+!*.*
+*.out
+*.o
+*.exe
