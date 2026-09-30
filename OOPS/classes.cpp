@@ -12,10 +12,15 @@ public:
     string name;
     int nos;
 
-    // constructor
-    Student()
+    // parameterized constructor
+    Student(int id, int age, string name, int nos)
     {
-        cout<<"Student ka default ctor called"<<endl;
+        this->id = id;
+        this->age = age;
+        this->name = name;
+        this->nos = nos;
+
+        cout<< "Student ka parameterized ctor called"<<endl;
     }
 
     // Behaviour(methods/functions)
@@ -40,15 +45,15 @@ public:
 };
 
 int main(){
-    Student prathmesh;
-    prathmesh.id = 1;
-    prathmesh.age = 23;
-    prathmesh.name = "Prathmesh";
-    prathmesh.nos = 6;
+    Student A(1, 23, "Prathmesh", 6);      //  -> each of them is a object of Student class
+    Student B(2, 24, "Rahul", 7);
+    Student C(3, 25, "Ramesh", 8);
+    Student D(4, 26, "Suresh", 9);
 
-    prathmesh.study();
-    prathmesh.sleep();
-    prathmesh.bunk();
+    cout<< "Student A ka name: "<<A.name<<endl;  //  -> access the attributs of a object
+    cout<< "Student B ka name: "<<B.name<<endl;
+    cout<< "Student C ka name: "<<C.name<<endl;
+    cout<< "Student D ka name: "<<D.name<<endl;
 
     return 0;
 }
