@@ -68,12 +68,23 @@ int main(){
 
 
     Student Rahul(B);  // copy constructor called
+    // Can also be written as: Student Rahul = B;  // copy constructor called
 
     cout<< "Rahul ka name: "<<Rahul.name<<endl;
     cout<< "Rahul ka id: "<<Rahul.id<<endl;
     cout<< "Rahul ka age: "<<Rahul.age<<endl;
     cout<< "Rahul ka nos: "<<Rahul.nos<<endl;
 
-    
+
+    // Dynamic memory allocation for objects
+    Student *ptr = new Student(5, 27, "Rohit", 10);  // parameterized constructor called
+    cout<< "ptr ka name: "<<ptr->name<<endl;
+    cout<< "ptr ka id: "<<ptr->id<<endl;
+    cout<< "ptr ka age: "<<ptr->age<<endl;
+    cout<< "ptr ka nos: "<<ptr->nos<<endl;  
+
+    delete ptr;  // destructor called for dynamically allocated object
+
+
     return 0;
 }
