@@ -23,6 +23,17 @@ public:
         cout<< "Student ka parameterized ctor called"<<endl;
     }
 
+    // copy constructor
+    Student(const Student &obj)
+    {
+        this->id = obj.id;
+        this->age = obj.age;
+        this->name = obj.name;
+        this->nos = obj.nos;
+
+        cout<< "Student ka copy constructor called"<<endl;
+    }
+
     // Behaviour(methods/functions)
 
     void study(){
@@ -55,5 +66,14 @@ int main(){
     cout<< "Student C ka name: "<<C.name<<endl;
     cout<< "Student D ka name: "<<D.name<<endl;
 
+
+    Student Rahul(B);  // copy constructor called
+
+    cout<< "Rahul ka name: "<<Rahul.name<<endl;
+    cout<< "Rahul ka id: "<<Rahul.id<<endl;
+    cout<< "Rahul ka age: "<<Rahul.age<<endl;
+    cout<< "Rahul ka nos: "<<Rahul.nos<<endl;
+
+    
     return 0;
 }
