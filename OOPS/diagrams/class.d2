@@ -1,0 +1,47 @@
+vars: { d2-config: { sketch: true; theme-id: 0; pad: 30 } }
+classes: {
+  cell: { label.near: outside-top-center; grid-columns: 1; grid-gap: 6; style: { stroke: transparent; fill: transparent; font-size: 22 } }
+  box: { width: 200; height: 120; style: { font-size: 18; fill: "#FFF3C4" } }
+  addr: { shape: text; style: { font-size: 18; font-color: "#666666" } }
+}
+grid-columns: 2
+horizontal-gap: 160
+
+title: "Class = blueprint  →  Object = real box made from it" {shape: text; near: top-center; style.font-size: 24}
+
+Student: {
+  shape: class
+  "+id": int
+  "+age": int
+  "+name": string
+  "+nos": int
+  "+Student()": default ctor
+  "+Student(id, age, name, nos)": parameterized ctor
+  "+Student(const Student &obj)": copy ctor
+  "+study()": void
+  "+sleep()": void
+  "+~Student()": destructor
+}
+objs: "" {
+  grid-columns: 1
+  grid-gap: 50
+  style: { stroke: transparent; fill: transparent }
+  A: "A" {
+    class: cell
+    box: "id = 1\nage = 23\nname = Prathmesh\nnos = 6" {class: box}
+    addr: "500" {class: addr}
+  }
+  B: "B" {
+    class: cell
+    box: "id = 2\nage = 24\nname = Rahul\nnos = 7" {class: box}
+    addr: "600" {class: addr}
+  }
+}
+Student -> objs.A.box: "creates" {style.stroke-width: 2}
+Student -> objs.B.box: "creates" {style.stroke-width: 2}
+
+note: |||md
+  **Attributes** = data inside each object  |  **Methods** = what the object can do
+
+  Every object gets its **own box** with its own copy of the attributes
+||| {near: bottom-center}

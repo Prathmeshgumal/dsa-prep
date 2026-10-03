@@ -1,0 +1,25 @@
+vars: { d2-config: { sketch: true; theme-id: 0; pad: 30 } }
+classes: {
+  cell: { label.near: outside-top-center; grid-columns: 1; grid-gap: 6; style: { stroke: transparent; fill: transparent; font-size: 22 } }
+  box: { width: 200; height: 120; style: { font-size: 18; fill: "#FFF3C4" } }
+  addr: { shape: text; style: { font-size: 18; font-color: "#666666" } }
+}
+grid-columns: 2
+horizontal-gap: 140
+
+title: "Constructor = runs automatically when the object box is created" {shape: text; near: top-center; style.font-size: 24}
+
+s: "Student s;" {
+  class: cell
+  box: "id = ?\nage = ?\nname = \"\"\nnos = ?" {class: box; style.fill: "#FFFFFF"}
+  addr: "400  (default ctor: no values given)" {class: addr}
+}
+A: "Student A(1, 23, \"Prathmesh\", 6);" {
+  class: cell
+  box: "id = 1\nage = 23\nname = Prathmesh\nnos = 6" {class: box}
+  addr: "500  (parameterized ctor: fills values)" {class: addr}
+}
+
+note: |md
+  Inside the ctor: `this->name = name;`  →  this object's name = the value passed in
+| {near: bottom-center}

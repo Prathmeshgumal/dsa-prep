@@ -1,0 +1,30 @@
+vars: { d2-config: { sketch: true; theme-id: 0; pad: 30 } }
+classes: {
+  cell: { label.near: outside-top-center; grid-columns: 1; grid-gap: 6; style: { stroke: transparent; fill: transparent; font-size: 22 } }
+  box: { width: 200; height: 120; style: { font-size: 18; fill: "#FFF3C4" } }
+  addr: { shape: text; style: { font-size: 18; font-color: "#666666" } }
+}
+grid-columns: 2
+horizontal-gap: 200
+
+title: |md
+  `Student Rahul(B);`   (same as `Student Rahul = B;`)
+| {shape: text; near: top-center}
+
+B: "B" {
+  class: cell
+  box: "id = 2\nage = 24\nname = Rahul\nnos = 7" {class: box}
+  addr: "600" {class: addr}
+}
+R: "Rahul (new object)" {
+  class: cell
+  box: "id = 2\nage = 24\nname = Rahul\nnos = 7" {class: box; style.fill: "#E3F0FB"}
+  addr: "700" {class: addr}
+}
+B.box -> R.box: "copy each attribute" {style.stroke-width: 2}
+
+note: |md
+  Copy ctor = make a **new box** and copy values from an existing one
+
+  Two boxes, two addresses (600 ≠ 700), same values
+| {near: bottom-center}

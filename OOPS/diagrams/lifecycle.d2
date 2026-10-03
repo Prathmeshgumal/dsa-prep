@@ -1,0 +1,13 @@
+vars: { d2-config: { sketch: true; theme-id: 0; pad: 30 } }
+direction: right
+
+born: "Constructor runs\n\nStudent A(...);" {style.fill: "#E3F0FB"; style.font-size: 18}
+lives: "Object lives\nuse methods\n\nA.study();\n→ Prathmesh is Studying" {style.fill: "#FFF3C4"; style.font-size: 18}
+dies: "Destructor runs\n\n~Student()" {style.fill: "#FDEDEC"; style.font-size: 18}
+born -> lives -> dies
+
+note: |md
+  Destructor runs **automatically**: at the closing `}` for a normal object, or on `delete ptr;` for a `new` object
+
+  Name = `~ClassName()`, no arguments, no return type, only one per class
+| {near: bottom-center}

@@ -1,0 +1,68 @@
+vars: { d2-config: { sketch: true; theme-id: 0; pad: 30 } }
+classes: {
+  tag: { style: { font-size: 20; bold: true; fill: "#E3F0FB" } }
+}
+grid-rows: 6
+grid-columns: 2
+horizontal-gap: 80
+vertical-gap: 24
+
+title: "classes.cpp: the parts of a class" {shape: text; near: top-center; style.font-size: 26}
+
+c1: |cpp
+  class Student {
+  public:
+      int id;
+      int age;
+      string name;
+      int nos;
+|
+t1: "Attributes\n(data of each object)" {class: tag}
+
+c2: |cpp
+      Student(int id, int age, string name, int nos) {
+          this->id = id;
+          this->age = age;
+          this->name = name;
+          this->nos = nos;
+      }
+|
+t2: "Parameterized constructor\n(fills values on creation)" {class: tag}
+
+c3: |cpp
+      Student(const Student &obj) {
+          this->id = obj.id;
+          this->name = obj.name;  // ...
+      }
+|
+t3: "Copy constructor\n(new object from an old one)" {class: tag}
+
+c4: |cpp
+      void study() {
+          cout << this->name << " is Studying";
+      }
+|
+t4: "Method\n(what the object can do)" {class: tag; style.fill: "#FFF3C4"}
+
+c5: |cpp
+      ~Student() {
+          cout << "dtor called";
+      }
+  };
+|
+t5: "Destructor\n(runs when object dies)" {class: tag; style.fill: "#FDEDEC"}
+
+c6: |cpp
+  Student A(1, 23, "Prathmesh", 6);
+  Student Rahul(B);
+  Student *ptr = new Student(5, 27, "Rohit", 10);
+  delete ptr;
+|
+t6: "Object creation\n(normal, copy, dynamic)" {class: tag; style.fill: "#E8F8F0"}
+
+t1 -> c1
+t2 -> c2
+t3 -> c3
+t4 -> c4
+t5 -> c5
+t6 -> c6

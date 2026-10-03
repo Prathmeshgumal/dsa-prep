@@ -1,6 +1,37 @@
-# DMA — My Mental Model
+# OOPS + DMA — My Mental Model
 
 **Every box has a value (inside) and an address (below).**
+
+## Class basics
+
+### The code (from classes.cpp)
+
+![code](diagrams/code.svg)
+
+### Class & object creation
+
+![class](diagrams/class.svg)
+
+### Constructors: default & parameterized
+
+![constructors](diagrams/constructors.svg)
+
+- Same name as the class, no return type.
+- If you write a parameterized ctor, C++ does **not** give you a default one. Add `Student() {}` if you need `Student s;`.
+
+### Copy constructor
+
+![copy](diagrams/copy.svg)
+
+### Methods & destructor
+
+![lifecycle](diagrams/lifecycle.svg)
+
+Inside a method, `this` → the object that called it (`A.study()` → `this` = A).
+
+---
+
+# DMA
 
 ## 1. Pointer
 
