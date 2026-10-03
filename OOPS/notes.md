@@ -19,6 +19,10 @@
 - Same name as the class, no return type.
 - If you write a parameterized ctor, C++ does **not** give you a default one. Add `Student() {}` if you need `Student s;`.
 
+### What `this->id` means
+
+![this](diagrams/this.svg)
+
 ### Copy constructor
 
 ![copy](diagrams/copy.svg)
@@ -60,3 +64,28 @@ Shortcut: `int *ptr = new int(50);` does both steps in one line.
 - Pointer box ≠ object box. They are two separate boxes.
 - Object → `.` | Pointer → `->`
 - `new` → `delete` | `new[]` → `delete[]`
+
+---
+
+# Encapsulation
+
+## What is encapsulation
+
+![capsule](diagrams/capsule.svg)
+
+Put the data **and** the methods that use it in one capsule (the class). Keep the data `private`, and open only a few `public` methods as the door.
+
+## Access modifiers
+
+![access](diagrams/access.svg)
+
+- In a `class`, members are `private` unless you say otherwise.
+- `A.id = 5;` → compile error, because `id` is private.
+
+## Getters & setters
+
+![getters and setters](diagrams/getset.svg)
+
+- **Setter** = the only way to change private data, and it can check first (`// authorization check`).
+- **Getter** = read-only access. Usually it **returns** the value: `int getId() { return id; }`.
+- `gpa` is an `int*` → `new int(gpa)` in the ctor, `delete gpa` in the dtor (DMA inside a class).

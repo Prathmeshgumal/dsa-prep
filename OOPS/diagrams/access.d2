@@ -1,0 +1,50 @@
+vars: { d2-config: { sketch: true; theme-id: 0; pad: 30 } }
+direction: right
+classes: {
+  h: { style: { fill: "#0B1D3A"; font-color: "#FFFFFF"; font-size: 20; bold: true } }
+  rowh: { style: { fill: "#E3F0FB"; font-size: 20; bold: true } }
+  yes: { style: { fill: "#E8F8F0"; font-size: 22 } }
+  no: { style: { fill: "#FDEDEC"; font-size: 22 } }
+}
+
+title: "Access modifiers: who can touch a member?" {shape: text; near: top-center; style.font-size: 24}
+
+code: |cpp
+  class Student {
+  private:          // only Student's own methods
+      int id;
+      string girlfriend;
+      void chatting();
+
+  protected:        // + child classes
+      // (comes in inheritance)
+
+  public:           // everyone
+      void setId(int id);
+      void getId();
+  };
+|
+
+table: "" {
+  grid-rows: 4
+  grid-columns: 4
+  grid-gap: 0
+  style: { stroke: transparent; fill: transparent }
+  c00: "modifier" {class: h; width: 170}
+  c01: "inside the\nclass" {class: h; width: 150}
+  c02: "child\nclass" {class: h; width: 150}
+  c03: "outside\n(main)" {class: h; width: 150}
+  c10: "public" {class: rowh}
+  c11: "✔" {class: yes}
+  c12: "✔" {class: yes}
+  c13: "✔" {class: yes}
+  c20: "protected" {class: rowh}
+  c21: "✔" {class: yes}
+  c22: "✔" {class: yes}
+  c23: "✘" {class: no}
+  c30: "private\n(default)" {class: rowh}
+  c31: "✔" {class: yes}
+  c32: "✘" {class: no}
+  c33: "✘" {class: no}
+}
+code -> table: "rules" {style.font-size: 18}

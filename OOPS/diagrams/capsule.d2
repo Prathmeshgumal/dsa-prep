@@ -1,0 +1,49 @@
+vars: { d2-config: { sketch: true; theme-id: 0; pad: 30 } }
+direction: down
+
+title: "Encapsulation = wrap data + methods in one capsule, hide the data" {shape: text; near: top-center; style.font-size: 24}
+
+main: "main()  (outside world)" {
+  style.fill: "#F4F6FA"
+  style.font-size: 20
+  ok: |cpp
+    A.getId();   // ✔ public → allowed
+  |
+  bad: |cpp
+    A.id = 5;    // ✘ private → compile error
+  |
+}
+
+A: "class Student  (the capsule)" {
+  style.fill: "#FAFAFA"
+  style.font-size: 22
+  pub: "public  (the door)" {
+    style.fill: "#E8F8F0"
+    style.font-size: 20
+    code: |cpp
+      public:
+          void getId()  { ... }
+          void setId(int id) { ... }
+          void getGpa() { ... }
+          void setGpa(int gpa) { ... }
+          void study()  { ... }
+    |
+  }
+  priv: "private 🔒 (locked inside)" {
+    style.fill: "#FDEDEC"
+    style.font-size: 20
+    code: |cpp
+      private:
+          int id;
+          int age;
+          string name;
+          int *gpa;
+          string girlfriend;
+          void chatting() { ... }
+    |
+  }
+  pub.code -> priv.code: "methods can use\nprivate data" {style.font-size: 18}
+}
+
+main.ok -> A.pub.code: "✔" {style.stroke-width: 2; style.font-size: 22}
+main.bad -> A.priv.code: "✘ blocked" {style.stroke: "#D62828"; style.stroke-dash: 4; style.font-color: "#D62828"; style.font-size: 20}

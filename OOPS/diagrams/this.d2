@@ -1,0 +1,41 @@
+vars: { d2-config: { sketch: true; theme-id: 0; pad: 30 } }
+classes: {
+  cell: { label.near: outside-top-center; grid-columns: 1; grid-gap: 6; style: { stroke: transparent; fill: transparent; font-size: 22 } }
+  box: { width: 120; height: 65; style: { font-size: 24; fill: "#FFFFFF" } }
+  addr: { shape: text; style: { font-size: 18; font-color: "#666666" } }
+}
+grid-columns: 2
+horizontal-gap: 200
+
+title: |md
+  `Student A(1, 23, "Prathmesh", 6);`  →  inside ctor: `this->id = id;`
+| {shape: text; near: top-center}
+
+inputs: "" {
+  grid-columns: 1
+  grid-gap: 60
+  style: { stroke: transparent; fill: transparent }
+  this: "this (hidden pointer)" {
+    class: cell
+    box: "500" {class: box; style.fill: "#E3F0FB"}
+    addr: "C++ makes it for you" {class: addr}
+  }
+  param: "id (parameter)" {
+    class: cell
+    box: "1" {class: box; style.fill: "#E8F8F0"}
+    addr: "value passed in" {class: addr}
+  }
+}
+A: "A (the object being built)" {
+  class: cell
+  box: "id   = 1  ← filled\nage  = ?\nname = ?\nnos  = ?" {class: box; width: 220; height: 140; style.font-size: 20; style.fill: "#FFF3C4"}
+  addr: "500" {class: addr}
+}
+inputs.this.box -> A.box: "points to" {style.stroke-width: 2}
+inputs.param.box -> A.box: "copied into A's id" {style.stroke-width: 2; style.stroke-dash: 4}
+
+note: "this->id  =  (*this).id\n→ go to the address in this (500), take that box's id\n\nid alone = the parameter\nso  this->id = id  →  A's id = 1" {
+  shape: text
+  near: bottom-center
+  style.font-size: 20
+}

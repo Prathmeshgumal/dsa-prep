@@ -1,0 +1,54 @@
+vars: { d2-config: { sketch: true; theme-id: 0; pad: 30 } }
+direction: right
+
+title: "Getters & setters = the controlled door to private data" {shape: text; near: top-center; style.font-size: 24}
+
+main: "main()" {
+  style.fill: "#F4F6FA"
+  style.font-size: 20
+  set: |cpp
+    A.setId(10);
+  |
+  get: |cpp
+    A.getId();
+  |
+}
+
+A: "Student A" {
+  style.fill: "#FAFAFA"
+  style.font-size: 22
+  setter: "setter (WRITE)" {
+    style.fill: "#E3F0FB"
+    style.font-size: 18
+    code: |cpp
+      void setId(int id) {
+          // authorization check
+          this->id = id;
+      }
+    |
+  }
+  getter: "getter (READ)" {
+    style.fill: "#E8F8F0"
+    style.font-size: 18
+    code: |cpp
+      void getId() {
+          cout << "ID of " << this->name
+               << " is: " << this->id;
+      }
+    |
+  }
+  id: "private id\n\n1  →  10" {style.fill: "#FDEDEC"; style.font-size: 22}
+  setter.code -> id: "writes" {style.font-size: 18}
+  getter.code -> id: "reads" {style.font-size: 18}
+}
+main.set -> A.setter.code {style.stroke-width: 2}
+main.get -> A.getter.code {style.stroke-width: 2}
+
+out: "ID of Alice is: 10" {shape: page; style.font-size: 18}
+A.getter.code -> out: "output" {style.font-size: 18}
+
+note: "Better getter: int getId() { return id; }  → caller gets the value" {
+  shape: text
+  near: bottom-center
+  style.font-size: 20
+}
