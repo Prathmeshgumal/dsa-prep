@@ -1,0 +1,30 @@
+vars: { d2-config: { sketch: true; theme-id: 0; pad: 30 } }
+classes: {
+  cell: { label.near: outside-top-center; grid-columns: 1; grid-gap: 6; style: { stroke: transparent; fill: transparent; font-size: 24 } }
+  box: { width: 110; height: 65; style: { font-size: 24; fill: "#FFFFFF" } }
+  addr: { shape: text; style: { font-size: 18; font-color: "#666666" } }
+}
+grid-columns: 2
+horizontal-gap: 180
+
+title: |md
+  `int *ptr = new int;`
+| {shape: text; near: top-center}
+
+ptr: "ptr" {
+  class: cell
+  box: "7000" {class: box; style.fill: "#E3F0FB"}
+  addr: "4112" {class: addr}
+}
+obj: "int (made by new)" {
+  class: cell
+  box: "?" {class: box; style.fill: "#FFFFFF"}
+  addr: "7000" {class: addr}
+}
+ptr.box -> obj.box: "points to" {style.stroke-width: 2}
+
+note: |md
+  `new int` makes an empty int box at 7000
+
+  gives back **7000** → stored in ptr
+| {near: bottom-center}

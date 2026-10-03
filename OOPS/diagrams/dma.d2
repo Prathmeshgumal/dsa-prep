@@ -1,0 +1,32 @@
+vars: { d2-config: { sketch: true; theme-id: 0; pad: 30 } }
+classes: {
+  cell: { label.near: outside-top-center; grid-columns: 1; grid-gap: 6; style: { stroke: transparent; fill: transparent; font-size: 24 } }
+  box: { width: 110; height: 65; style: { font-size: 24; fill: "#FFFFFF" } }
+  addr: { shape: text; style: { font-size: 18; font-color: "#666666" } }
+}
+grid-columns: 2
+horizontal-gap: 180
+
+title: |md
+  `Student* s1 = new Student("Alice", 26, "Harvard", 101);`
+| {shape: text; near: top-center}
+
+s1: "s1 (pointer)" {
+  class: cell
+  box: "3006" {class: box; style.fill: "#E3F0FB"}
+  addr: "406" {class: addr}
+}
+obj: "Student object (made by new)" {
+  class: cell
+  box: "name = Alice\nage = 26\nschool = Harvard\nrollno = 101" {class: box; width: 210; height: 140; style.font-size: 20; style.fill: "#FFF3C4"}
+  addr: "3006" {class: addr}
+}
+s1.box -> obj.box: "points to" {style.stroke-width: 2}
+
+note: |md
+  ∴ `*s1` = the Student object
+
+  ∴ `(*s1).name` = `s1->name` = "Alice"
+
+  `delete s1;` frees the object at 3006 (s1 itself is just the pointer)
+| {near: bottom-center}
